@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 
 let config = {
     user: 'katya',
-    password: '2September2!',
+    password: 'CampingDB22',
     server: 'KOMPUTER',
     database: 'Camping',
     options: {
