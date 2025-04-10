@@ -5,9 +5,9 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-             url('../public/mountains.png') no-repeat center center fixed; 
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../public/mountains.png") no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   display: flex;
@@ -19,7 +19,7 @@ body {
 header {
   padding: 20px 40px;
   background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,13 +67,13 @@ main {
 }
 
 .role-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 4px;
-  background: #736E2F;
+  background: #4a6b2a;
 }
 
 .role-card:hover {
@@ -91,14 +91,14 @@ main {
 }
 
 .role-card h3::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
   width: 50px;
   height: 3px;
-  background: #8C8630;
+  background: #4a6b2a;
   border-radius: 3px;
 }
 
@@ -109,19 +109,10 @@ main {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.role-icon {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #fff;
-  background: #736E2F;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .cta-button {
   display: inline-block;
   padding: 12px 30px;
-  background: #736E2F;
+  background: #4a6b2a;
   color: white;
   border-radius: 50px;
   text-decoration: none;
@@ -150,12 +141,12 @@ footer {
     flex-direction: column;
     padding: 15px;
   }
-  
+
   .tagline {
     margin-top: 10px;
     text-align: center;
   }
-  
+
   .role-card {
     width: 100%;
     max-width: 350px;

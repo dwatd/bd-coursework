@@ -1,69 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Client</title>
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/client-page.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/client-page.css" />
+  </head>
+  <body>
     <header>
-        <img src="../public/camping-logo.png" alt="WindHaven Logo" class="logo" onclick="location.href='/'">
-        <div class="tagline">Відчуй силу природи в мальовничих Карпатах</div>
+      <img
+        src="../public/camping-logo.png"
+        alt="WindHaven Logo"
+        class="logo"
+        onclick="location.href='/'"
+      />
+      <div class="tagline">Відчуй силу природи в мальовничих Карпатах</div>
     </header>
     <div class="container">
       <div class="sidebar">
         <h1>Booking Form</h1>
         <form>
           <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="Enter your full name">
-    
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your full name"
+            required
+          />
+
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="Enter your phone number">
-    
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+
           <label for="start">Start Date</label>
-          <input type="date" id="start">
-    
+          <input type="date" id="start" required />
+
           <label for="end">End Date</label>
-          <input type="date" id="end">
-    
+          <input type="date" id="end" required />
+
+          <label for="people">Number of people</label>
+          <input
+            type="number"
+            id="people"
+            min="1"
+            placeholder="Number of people"
+            required
+          />
+
           <label for="vehicle">Accommodation Type</label>
-          <select id="vehicle">
-            <option value="car">Only Car</option>
-            <option value="tent">Car with Tent</option>
+          <select id="vehicle" required>
+            <option value="car">Only Car (100)</option>
+            <option value="tent">Car with Tent (250)</option>
           </select>
-    
+
           <label for="backpacks">Storage Backpacks</label>
-          <input type="number" id="backpacks" min="0" placeholder="Number of backpacks">
+          <input
+            type="number"
+            id="backpacks"
+            min="0"
+            placeholder="Number of backpacks"
+          />
+          <button type="submit" class="submit-btn">Calculate Booking</button>
         </form>
-    </div>
-    <div class="details">
-      <div class="details-box">
-        <!-- додати логіку розрахунку через tariff -->
-        <h2>Booking Summary</h2>
-        <div class="detail-item">
-          <span>Dates</span>
-          <span>3 nights</span>
+      </div>
+      <div class="details">
+        <div class="details-box">
+          <h2>Booking Summary</h2>
+          <div class="detail-item">
+            <span>Dates </span>
+            <span id="nights">0 nights</span>
+          </div>
+          <div class="detail-item">
+            <span>Accommodation</span>
+            <!-- якщо тільки машина, то 100, якщо машина і намет - 250 -->
+            <span id="accommodation-type">Not selected</span>
+          </div>
+          <div class="detail-item">
+            <span>Per person</span>
+            <!-- якщо наприклад людей 2, то з'являється 2х перед ₴200 -->
+            <span id="rate">₴200</span>
+          </div>
+          <div class="detail-item">
+            <span>Storage</span>
+            <!-- якщо наприклад рюкзаків 0, то з'являється 0х перед ₴50 -->
+            <span id="backpacks-total">₴50</span>
+          </div>
+          <div class="detail-item total">
+            <span>Total</span>
+            <!-- розраховується сума всього разом. Розраховуємо суми добутків плат за людину, акомодейшин та рюкзаки і множиться на кількість ночей -->
+            <span id="total">₴0</span>
+          </div>
         </div>
-        <div class="detail-item">
-          <span>Guests</span>
-          <span>2 adults</span>
-        </div>
-        <div class="detail-item">
-          <span>Rate per night</span>
-          <span>₴1800</span>
-        </div>
-        <div class="detail-item">
-          <span>Total</span>
-          <span>₴5400</span>
+        <!-- можна додати види оплати -->
+        <div class="payment-info">
+          <button id="payBtn" disabled>Proceed to Payment</button>
         </div>
       </div>
-      <!-- можна додати види оплати -->
-      <div class="payment-info">
-        <button class="pay-btn">Proceed to Payment</button>
-      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
