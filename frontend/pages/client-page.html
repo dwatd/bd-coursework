@@ -12,49 +12,58 @@
         <img src="../public/camping-logo.png" alt="WindHaven Logo" class="logo" onclick="location.href='/'">
         <div class="tagline">Відчуй силу природи в мальовничих Карпатах</div>
     </header>
-    <div class="sidebar">
+    <div class="container">
+      <div class="sidebar">
         <h1>Booking Form</h1>
         <form>
           <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="Enter your name">
-    
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email">
+          <input type="text" id="name" placeholder="Enter your full name">
     
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" placeholder="Enter your phone number">
     
-          <label for="dates">Booking Dates</label>
-          <input type="text" id="dates" placeholder="e.g. April 12 – April 15">
+          <label for="start">Start Date</label>
+          <input type="date" id="start">
     
-          <label for="people">Number of Guests</label>
-          <input type="number" id="people" min="1" value="1">
+          <label for="end">End Date</label>
+          <input type="date" id="end">
     
-          <label for="notes">Additional Requests</label>
-          <textarea id="notes" rows="4" placeholder="e.g. Vegetarian meals, late check-in..."></textarea>
+          <label for="vehicle">Accommodation Type</label>
+          <select id="vehicle">
+            <option value="car">Only Car</option>
+            <option value="tent">Car with Tent</option>
+          </select>
+    
+          <label for="backpacks">Storage Backpacks</label>
+          <input type="number" id="backpacks" min="0" placeholder="Number of backpacks">
         </form>
-      </div>
-      <div class="details">
-        <div class="details-box">
-          <h2>Booking Summary</h2>
-          <div class="detail-item">
-            <span>Dates</span>
-            <span>3 nights</span>
-          </div>
-          <div class="detail-item">
-            <span>Guests</span>
-            <span>2 adults</span>
-          </div>
-          <div class="detail-item">
-            <span>Rate per night</span>
-            <span>₴1800</span>
-          </div>
-          <div class="detail-item" style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 12px;">
-            <span>Total</span>
-            <span>₴5400</span>
-          </div>
-        </div>
-        <button class="pay-btn">Proceed to Payment</button>
     </div>
+    <div class="details">
+      <div class="details-box">
+        <!-- додати логіку розрахунку через tariff -->
+        <h2>Booking Summary</h2>
+        <div class="detail-item">
+          <span>Dates</span>
+          <span>3 nights</span>
+        </div>
+        <div class="detail-item">
+          <span>Guests</span>
+          <span>2 adults</span>
+        </div>
+        <div class="detail-item">
+          <span>Rate per night</span>
+          <span>₴1800</span>
+        </div>
+        <div class="detail-item">
+          <span>Total</span>
+          <span>₴5400</span>
+        </div>
+      </div>
+      <!-- можна додати види оплати -->
+      <div class="payment-info">
+        <button class="pay-btn">Proceed to Payment</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

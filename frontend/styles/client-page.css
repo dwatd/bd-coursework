@@ -2,3 +2,23 @@
     background: #FDFAF6;
     color: #18230F;
 } */
+
+body {
+    background: #FDFAF6;
+    color: #18230F; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
