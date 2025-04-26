@@ -184,6 +184,25 @@ select:focus {
   background-color: #cccccc;
 }
 
+/* footer */
+.site-footer {
+  background-color: #4a6b2a;
+  color: white;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-info {
+  flex: 1;
+}
 /* Responsive design */
 @media (max-width: 768px) {
   .container {

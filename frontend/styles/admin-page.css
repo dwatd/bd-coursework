@@ -1,0 +1,633 @@
+body {
+  background: #fdfaf6;
+  color: #18230f;
+}
+
+/* Admin Page Styles */
+.admin-container {
+  display: flex;
+  min-height: calc(100vh - 82px); /* Subtract header height */
+}
+
+.admin-sidebar {
+  width: 250px;
+  background-color: #18230f;
+  padding: 1.5rem 0;
+}
+
+.admin-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar nav li {
+  margin-bottom: 0.5rem;
+}
+
+.admin-sidebar nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  transition: background-color 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.admin-sidebar nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-sidebar nav a i {
+  margin-right: 0.8rem;
+  width: 20px;
+  text-align: center;
+}
+
+.admin-sidebar nav li.active a {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid #4a6b2a;
+}
+
+/* Dashboard section */
+.dashboard-section {
+  display: none;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 180px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 80px;
+}
+
+.stat-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #18230f;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.stat-change {
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stat-change.positive {
+  color: #4caf50;
+}
+
+.stat-change.negative {
+  color: #f44336;
+}
+
+/* Bookings section*/
+.bookings-section {
+  display: none;
+}
+
+.bookings-table {
+  width: 70rem;
+  height: 28rem;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.bookings-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #18230f;
+}
+
+.booking-status {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-confirmed {
+  background-color: #e3fde4;
+  color: #4caf50;
+}
+
+.status-pending {
+  background-color: #fff8e1;
+  color: #ffa000;
+}
+
+.status-cancelled {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.booking-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.booking-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.booking-action-btn.delete:hover {
+  color: #d32f2f;
+}
+
+.bookings-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.bookings-search {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 300px;
+}
+
+.bookings-filter {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: #4a6b2a;
+  color: white;
+  border-color: #4a6b2a;
+}
+
+/* Finances Section Styles */
+.finances-section {
+  padding: 2rem;
+  display: none; /* Hidden by default */
+}
+
+.finances-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.finances-header h2 {
+  margin: 0;
+  color: #18230f;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.time-period-selector select {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.finance-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.highlight-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.highlight-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #18230f;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-label {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-change {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.highlight-change.positive {
+  color: #4caf50;
+}
+
+.highlight-change.negative {
+  color: #f44336;
+}
+
+.finance-charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.finance-chart {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  height: 300px;
+}
+
+.finance-chart h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #18230f;
+  font-size: 1.2rem;
+}
+
+.recent-transactions {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.recent-transactions h3 {
+  margin-top: 0;
+  color: #18230f;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.transactions-table th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+  color: #18230f;
+}
+
+.amount-income {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.amount-expense {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.transaction-status {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.transaction-status.completed {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+/* Expenses Section Styles */
+.expenses-section {
+  padding: 2rem;
+  display: none; /* Hidden by default */
+}
+
+.expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.expenses-header h2 {
+  margin: 0;
+  color: #18230f;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.expenses-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.add-expense-btn {
+  background-color: #4a6b2a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.add-expense-btn:hover {
+  background-color: #3a561d;
+}
+
+#expense-category-filter {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.expenses-table {
+  width: 70rem;
+  height: 28rem;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.expenses-table th,
+.expenses-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.expenses-table th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+  color: #18230f;
+}
+
+.expenses-table td {
+  color: #333;
+}
+
+.receipt-link {
+  color: #4a6b2a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.receipt-link:hover {
+  text-decoration: underline;
+}
+
+.expense-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 1rem;
+  padding: 0.3rem;
+  transition: color 0.3s;
+}
+
+.expense-action-btn:hover {
+  color: #4a6b2a;
+}
+
+.expense-action-btn.delete:hover {
+  color: #f44336;
+}
+
+/* Settings Section Styles */
+.settings-section {
+  padding: 2rem;
+  display: none; /* Hidden by default */
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.settings-header h2 {
+  margin: 0;
+  color: #18230f;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.last-updated {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.tariff-form {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #18230f;
+}
+
+.form-group input {
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.price-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.price-item {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.price-item label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.price-item input {
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.save-btn {
+  background-color: #4a6b2a;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #3a561d;
+}
+
+.reset-btn {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.reset-btn:hover {
+  background-color: #e0e0e0;
+}
+
+section.active-section {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .stats-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .finance-highlights,
+  .finance-charts-container {
+    grid-template-columns: 1fr;
+  }
+
+  .finance-chart {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    padding: 0;
+  }
+
+  .admin-sidebar nav ul {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .admin-sidebar nav li {
+    flex: 1;
+    min-width: max-content;
+    margin-bottom: 0;
+  }
+
+  .admin-sidebar nav a {
+    padding: 1rem;
+    border-left: none;
+    border-bottom: 4px solid transparent;
+  }
+
+  .admin-sidebar nav li.active a {
+    border-left: none;
+    border-bottom: 4px solid #4a6b2a;
+  }
+
+  .stats-summary {
+    grid-template-columns: 1fr;
+  }
+}
