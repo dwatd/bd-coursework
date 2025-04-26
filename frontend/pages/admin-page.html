@@ -19,16 +19,13 @@
         class="logo"
         onclick="location.href='/'"
       />
-      <div class="tagline">Welcome!</div>
     </header>
     <div class="admin-container">
       <aside class="admin-sidebar">
         <nav>
-          <ul>
-            <li class="active">
-              <a href="#dashboard"
-                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
-              >
+          <ul> 
+            <li>
+              <a href="#finances"><i class="fas fa-chart-line"></i> Finances</a>
             </li>
             <li>
               <a href="#bookings"
@@ -39,10 +36,6 @@
               <a href="#expenses"><i class="fas fa-receipt"></i> Expenses</a>
             </li>
             <li>
-              <a href="#finances"><i class="fas fa-chart-line"></i> Finances</a>
-            </li>
-
-            <li>
               <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
             </li>
           </ul>
@@ -50,39 +43,6 @@
       </aside>
 
       <main class="admin-main">
-        <section id="dashboard-section" class="dashboard-section">
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-value">₴24,580</div>
-              <div class="stat-label">Total Income</div>
-              <div class="stat-change positive">
-                +12% <i class="fas fa-arrow-up"></i>
-              </div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">₴8,320</div>
-              <div class="stat-label">Total Expenses</div>
-              <div class="stat-change negative">
-                -5% <i class="fas fa-arrow-down"></i>
-              </div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">₴16,260</div>
-              <div class="stat-label">Net Profit</div>
-              <div class="stat-change positive">
-                +18% <i class="fas fa-arrow-up"></i>
-              </div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">42</div>
-              <div class="stat-label">Active Bookings</div>
-              <div class="stat-change positive">
-                +3 <i class="fas fa-arrow-up"></i>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <!-- Bookings Section -->
         <section id="bookings-section" class="bookings-section">
           <div class="bookings-controls">
@@ -99,12 +59,13 @@
             </div>
           </div>
 
-          <table class="bookings-table">
+          <table class="admin-table">
             <thead>
               <tr>
                 <th>Booking ID</th>
                 <th>Client</th>
-                <th>Dates</th>
+                <th>Start Date</th>
+                <th>End Date</th>
                 <th>Type</th>
                 <th>Amount</th>
                 <th>Status</th>
@@ -115,7 +76,8 @@
               <tr>
                 <td>#WH-2023-042</td>
                 <td>Ivan Petrenko</td>
-                <td>15.05 - 18.05</td>
+                <td>15.05</td>
+                <td>18.05</td>
                 <td>Car with Tent</td>
                 <td>₴1,250</td>
                 <td>
@@ -123,13 +85,13 @@
                 </td>
                 <td>
                   <div class="booking-actions">
-                    <button class="booking-action-btn view">
+                    <button class="action-btn view">
                       <i class="fas fa-eye"></i>
                     </button>
-                    <button class="booking-action-btn edit">
+                    <button class="action-btn edit">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <button class="booking-action-btn delete">
+                    <button class="action-btn delete">
                       <i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -138,7 +100,8 @@
               <tr>
                 <td>#WH-2023-041</td>
                 <td>Olena Kovalenko</td>
-                <td>12.05 - 14.05</td>
+                <td>12.05</td>
+                <td>14.05</td>
                 <td>Only Car</td>
                 <td>₴600</td>
                 <td>
@@ -146,13 +109,13 @@
                 </td>
                 <td>
                   <div class="booking-actions">
-                    <button class="booking-action-btn view">
+                    <button class="action-btn view">
                       <i class="fas fa-eye"></i>
                     </button>
-                    <button class="booking-action-btn edit">
+                    <button class="action-btn edit">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <button class="booking-action-btn delete">
+                    <button class="action-btn delete">
                       <i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -161,7 +124,8 @@
               <tr>
                 <td>#WH-2023-040</td>
                 <td>Mykhailo Sydorenko</td>
-                <td>10.05 - 12.05</td>
+                <td>10.05</td>
+                <td>12.05</td>
                 <td>Car with Tent</td>
                 <td>₴750</td>
                 <td>
@@ -169,13 +133,13 @@
                 </td>
                 <td>
                   <div class="booking-actions">
-                    <button class="booking-action-btn view">
+                    <button class="action-btn view">
                       <i class="fas fa-eye"></i>
                     </button>
-                    <button class="booking-action-btn edit">
+                    <button class="action-btn edit">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <button class="booking-action-btn delete">
+                    <button class="action-btn delete">
                       <i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -184,7 +148,8 @@
               <tr>
                 <td>#WH-2023-039</td>
                 <td>Anna Shevchenko</td>
-                <td>08.05 - 10.05</td>
+                <td>08.05</td>
+                <td>10.05</td>
                 <td>Only Car</td>
                 <td>₴400</td>
                 <td>
@@ -192,13 +157,13 @@
                 </td>
                 <td>
                   <div class="booking-actions">
-                    <button class="booking-action-btn view">
+                    <button class="action-btn view">
                       <i class="fas fa-eye"></i>
                     </button>
-                    <button class="booking-action-btn edit">
+                    <button class="action-btn edit">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <button class="booking-action-btn delete">
+                    <button class="action-btn delete">
                       <i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -206,6 +171,81 @@
               </tr>
             </tbody>
           </table>
+        </section>
+
+        <!-- Expenses Section -->
+        <section id="expenses-section" class="expenses-section">
+          <div class="expenses-header">
+            <h2><i class="fas fa-receipt"></i> Expense Records</h2>
+            <div class="expenses-controls">
+              <button class="add-expense-btn">
+                <i class="fas fa-plus"></i> Add Expense
+              </button>
+              <select id="expense-category-filter">
+                <option value="all">All Categories</option>
+                <option value="supplies">Ground Rent</option>
+                <option value="maintenance">Internet</option>
+                <option value="utilities">Utilities</option>
+                <option value="salaries">Salaries</option>
+              </select>
+            </div>
+          </div>
+
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Category</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>14.05.2023</td>
+                  <td>Maintenance</td>
+                  <td>Tent repairs</td>
+                  <td>₴850</td>
+                  <td>
+                    <button class="action-btn edit">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="action-btn delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>10.05.2023</td>
+                  <td>Supplies</td>
+                  <td>Firewood purchase</td>
+                  <td>₴1,200</td>
+                  <td>
+                    <button class="action-btn edit">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="action-btn delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>05.05.2023</td>
+                  <td>Utilities</td>
+                  <td>Electricity bill</td>
+                  <td>₴1,500</td>
+                  <td>
+                    <button class="action-btn edit">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="action-btn delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
         </section>
 
         <!-- Finances Section -->
@@ -258,139 +298,6 @@
               <canvas id="revenueSourcesChart"></canvas>
             </div>
           </div>
-
-          <div class="recent-transactions">
-            <h3>Recent Transactions</h3>
-            <div class="transactions-table-container">
-              <table class="transactions-table">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>15.05.2023</td>
-                    <td>Booking #WH-2023-042</td>
-                    <td>Accommodation</td>
-                    <td class="amount-income">+₴1,250</td>
-                    <td>
-                      <span class="transaction-status completed"
-                        >Completed</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>14.05.2023</td>
-                    <td>Tent maintenance</td>
-                    <td>Equipment</td>
-                    <td class="amount-expense">-₴850</td>
-                    <td>
-                      <span class="transaction-status completed"
-                        >Completed</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>12.05.2023</td>
-                    <td>Booking #WH-2023-041</td>
-                    <td>Accommodation</td>
-                    <td class="amount-income">+₴600</td>
-                    <td>
-                      <span class="transaction-status completed"
-                        >Completed</span
-                      >
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        <!-- Expenses Section -->
-        <section id="expenses-section" class="expenses-section">
-          <div class="expenses-header">
-            <h2><i class="fas fa-receipt"></i> Expense Records</h2>
-            <div class="expenses-controls">
-              <button class="add-expense-btn">
-                <i class="fas fa-plus"></i> Add Expense
-              </button>
-              <select id="expense-category-filter">
-                <option value="all">All Categories</option>
-                <option value="supplies">Supplies</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="utilities">Utilities</option>
-                <option value="salaries">Salaries</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="expenses-table-container">
-            <table class="expenses-table">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Category</th>
-                  <th>Description</th>
-                  <th>Amount</th>
-                  <th>Receipt</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>14.05.2023</td>
-                  <td>Maintenance</td>
-                  <td>Tent repairs</td>
-                  <td>₴850</td>
-                  <td><a href="#" class="receipt-link">View</a></td>
-                  <td>
-                    <button class="expense-action-btn edit">
-                      <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="expense-action-btn delete">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>10.05.2023</td>
-                  <td>Supplies</td>
-                  <td>Firewood purchase</td>
-                  <td>₴1,200</td>
-                  <td><a href="#" class="receipt-link">View</a></td>
-                  <td>
-                    <button class="expense-action-btn edit">
-                      <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="expense-action-btn delete">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>05.05.2023</td>
-                  <td>Utilities</td>
-                  <td>Electricity bill</td>
-                  <td>₴1,500</td>
-                  <td><a href="#" class="receipt-link">View</a></td>
-                  <td>
-                    <button class="expense-action-btn edit">
-                      <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="expense-action-btn delete">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </section>
 
         <!-- Settings Section -->
@@ -403,33 +310,32 @@
           </div>
 
           <div class="tariff-form">
-            <div class="form-group">
-              <label for="tariff-id">Tariff ID:</label>
-              <input type="text" id="tariff-id" value="T2023-05" readonly />
+            <div class="input-row">
+              <div class="price-item">
+                <label for="tariff-id">Tariff ID:</label>
+                <input type="text" id="tariff-id" value="T2023-05" readonly />
+              </div>
+            
+                <div class="price-item">
+                  <label for="person-price">Price per person (₴):</label>
+                  <input type="number" id="person-price" value="200" min="0" />
+                </div>
+
+                <div class="price-item">
+                  <label for="tent-price">Price per tent (₴):</label>
+                  <input type="number" id="tent-price" value="150" min="0" />
+                </div>
+
+                <div class="price-item">
+                  <label for="car-price">Price per car (₴):</label>
+                  <input type="number" id="car-price" value="100" min="0" />
+                </div>
+
+                <div class="price-item">
+                  <label for="storage-price">Storage per backpack (₴):</label>
+                  <input type="number" id="storage-price" value="50" min="0" />
+                </div>
             </div>
-
-            <div class="price-controls">
-              <div class="price-item">
-                <label for="person-price">Price per person (₴):</label>
-                <input type="number" id="person-price" value="200" min="0" />
-              </div>
-
-              <div class="price-item">
-                <label for="tent-price">Price per tent (₴):</label>
-                <input type="number" id="tent-price" value="150" min="0" />
-              </div>
-
-              <div class="price-item">
-                <label for="car-price">Price per car (₴):</label>
-                <input type="number" id="car-price" value="100" min="0" />
-              </div>
-
-              <div class="price-item">
-                <label for="storage-price">Storage per backpack (₴):</label>
-                <input type="number" id="storage-price" value="50" min="0" />
-              </div>
-            </div>
-
             <div class="form-actions">
               <button id="save-tariff-btn" class="save-btn">
                 <i class="fas fa-save"></i> Save Changes
