@@ -25,9 +25,6 @@
         <nav>
           <ul> 
             <li>
-              <a href="#finances"><i class="fas fa-chart-line"></i> Finances</a>
-            </li>
-            <li>
               <a href="#bookings"
                 ><i class="fas fa-calendar-check"></i> Bookings</a
               >
@@ -178,20 +175,29 @@
           <div class="expenses-header">
             <h2><i class="fas fa-receipt"></i> Expense Records</h2>
             <div class="expenses-controls">
-              <button class="add-expense-btn">
-                <i class="fas fa-plus"></i> Add Expense
-              </button>
               <select id="expense-category-filter">
                 <option value="all">All Categories</option>
-                <option value="supplies">Ground Rent</option>
-                <option value="maintenance">Internet</option>
-                <option value="utilities">Utilities</option>
-                <option value="salaries">Salaries</option>
+                <option value="rent">Оренда землі</option>
+                <option value="internet">Інтернет</option>
+                <option value="utilities">Комунальні послуги</option>
+                <option value="salaries">Зарплата</option>
               </select>
             </div>
           </div>
-
-            <table class="admin-table">
+          <div class="add-expense-form" style="margin-top: 20px;">
+            <h3>Add Expense</h3>
+            <input type="date" id="new-expense-date" />
+            <select id="new-expense-category">
+              <option value="Оренда землі">Оренда землі</option>
+              <option value="Інтернет">Інтернет</option>
+              <option value="Комунальні послуги">Комунальні послуги</option>
+              <option value="Зарплата">Зарплата</option>
+            </select>
+            <input type="text" id="new-expense-description" placeholder="Опис" />
+            <input type="number" id="new-expense-amount" placeholder="Сума" />
+            <button id="save-expense-btn"><i class="fas fa-save"></i> Save Changes</button>
+          </div>
+            <table class="admin-table expenses-table">
               <thead>
                 <tr>
                   <th>Date</th>
@@ -246,58 +252,6 @@
                 </tr>
               </tbody>
             </table>
-        </section>
-
-        <!-- Finances Section -->
-        <section id="finances-section" class="finances-section">
-          <div class="finances-header">
-            <h2><i class="fas fa-chart-line"></i> Financial Overview</h2>
-            <div class="time-period-selector">
-              <select id="time-period">
-                <option value="week">This Week</option>
-                <option value="month" selected>This Month</option>
-                <option value="quarter">This Quarter</option>
-                <option value="year">This Year</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="finance-highlights">
-            <div class="highlight-card">
-              <div class="highlight-value">₴24,580</div>
-              <div class="highlight-label">Total Income</div>
-              <div class="highlight-change positive">
-                <i class="fas fa-arrow-up"></i> 12% vs previous period
-              </div>
-            </div>
-
-            <div class="highlight-card">
-              <div class="highlight-value">₴8,320</div>
-              <div class="highlight-label">Total Expenses</div>
-              <div class="highlight-change negative">
-                <i class="fas fa-arrow-down"></i> 5% vs previous period
-              </div>
-            </div>
-
-            <div class="highlight-card">
-              <div class="highlight-value">₴16,260</div>
-              <div class="highlight-label">Net Profit</div>
-              <div class="highlight-change positive">
-                <i class="fas fa-arrow-up"></i> 18% vs previous period
-              </div>
-            </div>
-          </div>
-
-          <div class="finance-charts-container">
-            <div class="finance-chart">
-              <h3>Income vs Expenses</h3>
-              <canvas id="incomeExpensesChart"></canvas>
-            </div>
-            <div class="finance-chart">
-              <h3>Revenue Sources</h3>
-              <canvas id="revenueSourcesChart"></canvas>
-            </div>
-          </div>
         </section>
 
         <!-- Settings Section -->

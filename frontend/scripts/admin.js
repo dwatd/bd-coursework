@@ -1,6 +1,7 @@
 const navLinks = document.querySelectorAll(".admin-sidebar a");
 const sections = document.querySelectorAll("main section");
 
+// settings section
 const save_tariff_btn = document.getElementById('save-tariff-btn');
 const reset_tariff_btn = document.getElementById('reset-tariff-btn');
 
@@ -37,8 +38,142 @@ document.addEventListener("DOMContentLoaded", function () {
     switchSection(sectionId);
   });
 
-  const initialSectionId = window.location.hash.substring(1) || "finances";
+  const initialSectionId = window.location.hash.substring(1) || "bookings";
   switchSection(initialSectionId);
+
+  // Bookings таблиця БД
+  
+
+  // Expenses таблиця БД
+  const loadExpenses = () => {
+    fetch('/api/expenses')
+      .then(response => response.json())
+      .then(data => {
+        const tbody = document.querySelector('.expenses-table tbody');
+        tbody.innerHTML = '';
+ 
+        const categoryFilter = document.getElementById('expense-category-filter').value;
+        console.log('Selected category:', categoryFilter); 
+
+        const categoryMapping = {
+          'rent': 'Оренда землі',
+          'internet': 'Інтернет',
+          'utilities': 'Комунальні послуги',
+          'salaries': 'Зарплата'
+        };
+  
+        const categoryFilterMapped = categoryMapping[categoryFilter] || 'all';
+  
+        console.log('Mapped category:', categoryFilterMapped);
+ 
+        const filteredData = categoryFilterMapped === 'all' 
+          ? data 
+          : data.filter(expense => expense.category === categoryFilterMapped);
+  
+        console.log('Filtered data:', filteredData); 
+
+        filteredData.forEach(expense => {
+          const tr = document.createElement('tr');
+    
+          tr.innerHTML = `
+            <td>${new Date(expense.date).toLocaleDateString()}</td>
+            <td>${expense.category}</td>
+            <td>${expense.description}</td>
+            <td>₴${expense.amount}</td>
+            <td>
+              <button class="action-btn edit" data-id="${expense.expense_id}">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="action-btn delete" data-id="${expense.expense_id}">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>`;
+  
+          tbody.appendChild(tr);
+        });
+  
+        // Delete button listeners
+        document.querySelectorAll('.action-btn.delete').forEach(button => {
+          button.addEventListener('click', () => {
+            const id = button.dataset.id;
+  
+            if (confirm('Are you sure you want to delete this expense?')) {
+              fetch(`/api/expenses/${id}`, {
+                method: 'DELETE'
+              })
+                .then(response => {
+                  if (response.ok) {
+                    loadExpenses();
+                  } else {
+                    alert('Failed to delete expense.');
+                  }
+                })
+                .catch(error => console.error('Error deleting expense:', error));
+            }
+          });
+        });
+  
+        // Edit button listeners
+        document.querySelectorAll('.action-btn.edit').forEach(button => {
+          button.addEventListener('click', () => {
+            const tr = button.closest('tr');
+            const id = button.dataset.id;
+  
+            const cells = tr.querySelectorAll('td');
+            const date = new Date(cells[0].innerText).toISOString().split('T')[0];
+            const category = cells[1].innerText;
+            const description = cells[2].innerText;
+            const amount = cells[3].innerText.replace(/[₴\s]/g, '');
+  
+            tr.innerHTML = `
+              <td><input type="date" value="${date}"></td>
+              <td><input type="text" value="${category}"></td>
+              <td><input type="text" value="${description}"></td>
+              <td><input type="number" value="${amount}"></td>
+              <td>
+                <button class="action-btn save"><i class="fas fa-check"></i></button>
+                <button class="action-btn cancel"><i class="fas fa-times"></i></button>
+              </td>
+            `;
+  
+            // Save button
+            tr.querySelector('.save').addEventListener('click', () => {
+              const inputs = tr.querySelectorAll('input');
+              const updatedExpense = {
+                date: inputs[0].value,
+                category: inputs[1].value,
+                description: inputs[2].value,
+                amount: parseFloat(inputs[3].value)
+              };
+  
+              fetch(`/api/expenses/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedExpense)
+              })
+                .then(response => {
+                  if (response.ok) loadExpenses();
+                  else alert('Failed to update');
+                });
+            });
+  
+            // Cancel button
+            tr.querySelector('.cancel').addEventListener('click', () => {
+              loadExpenses();
+            });
+          });
+        });
+  
+      })
+      .catch(error => {
+        console.error('Error loading expenses:', error);
+      });
+  };  
+
+  loadExpenses();
+  document.getElementById('expense-category-filter').addEventListener('change', loadExpenses);
+ 
+
 
   // Tariffs таблиця БД
   // Функція для завантаження останнього тарифу
@@ -105,4 +240,38 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
   });
+
+  document.getElementById('save-expense-btn').addEventListener('click', () => {
+    const date = document.getElementById('new-expense-date').value;
+    const category = document.getElementById('new-expense-category').value;
+    const description = document.getElementById('new-expense-description').value.trim();
+    const amount = parseFloat(document.getElementById('new-expense-amount').value);
+  
+    if (!date || !category || !description || isNaN(amount)) {
+      alert('Будь ласка, заповніть всі поля');
+      return;
+    }
+  
+    const newExpense = { date, category, description, amount };
+  
+    fetch('/api/expenses', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newExpense)
+    })
+      .then(response => {
+        if (response.ok) {
+          loadExpenses();
+          // Очищаємо форму
+          document.getElementById('new-expense-date').value = '';
+          document.getElementById('new-expense-category').value = 'Оренда землі';
+          document.getElementById('new-expense-description').value = '';
+          document.getElementById('new-expense-amount').value = '';
+        } else {
+          alert('Помилка при додаванні витрати');
+        }
+      })
+      .catch(error => console.error('Error adding expense:', error));
+  });
+  
 });

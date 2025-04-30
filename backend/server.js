@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const { connectToDb } = require('./db'); 
 const tariffsRouter = require('./routes/tariffs'); 
+const expensesRouter = require('./routes/expenses');
 
 const app = express();
 const PORT = 3000;
@@ -17,6 +18,7 @@ app.use(express.json());
 connectToDb();
 
 app.use('/api/tariffs', tariffsRouter);
+app.use('/api/expenses', expensesRouter);
 
 app.get('', (req, res) => {
     res.sendFile('main.html', { root: frontPath + '/pages' });
