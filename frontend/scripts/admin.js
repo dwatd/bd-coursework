@@ -6,7 +6,6 @@ const save_tariff_btn = document.getElementById("save-tariff-btn");
 const reset_tariff_btn = document.getElementById("reset-tariff-btn");
 
 // bookings table
-
 // edit btn
 let allBookings = [];
 
