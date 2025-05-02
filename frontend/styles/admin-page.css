@@ -74,28 +74,6 @@ body {
   color: #18230f;
 }
 
-.booking-status {
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.status-confirmed {
-  background-color: #e3fde4;
-  color: #4caf50;
-}
-
-.status-pending {
-  background-color: #fff8e1;
-  color: #ffa000;
-}
-
-.status-cancelled {
-  background-color: #ffebee;
-  color: #d32f2f;
-}
-
 .bookings-controls {
   display: flex;
   justify-content: space-between;
@@ -108,25 +86,6 @@ body {
   border: 1px solid #ddd;
   border-radius: 6px;
   width: 300px;
-}
-
-.bookings-filter {
-  display: flex;
-  gap: 1rem;
-}
-
-.filter-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
-  background: white;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.filter-btn.active {
-  background: #4a6b2a;
-  color: white;
-  border-color: #4a6b2a;
 }
 
 /* Expenses Section Styles */
@@ -167,7 +126,9 @@ body {
   text-decoration: underline;
 }
 
-.action-btn {
+.action-btn,
+.booking-btn-delete,
+.booking-btn-edit {
   background: none;
   border: none;
   cursor: pointer;
@@ -177,11 +138,13 @@ body {
   transition: color 0.3s;
 }
 
-.action-btn.edit:hover {
+.action-btn.edit:hover,
+.booking-btn-edit:hover {
   color: #4a6b2a;
 }
 
-.action-btn.delete:hover {
+.action-btn.delete:hover,
+.booking-btn-delete:hover {
   color: #f44336;
 }
 
@@ -194,7 +157,7 @@ body {
   padding: 15px;
   border-radius: 12px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .add-expense-form h3 {
@@ -225,7 +188,6 @@ body {
 .add-expense-form button:hover {
   background-color: #3a561d;
 }
-
 
 /* Settings Section */
 .settings-section {
@@ -285,12 +247,13 @@ body {
   margin-top: 2rem;
 }
 
-.save-btn,.reset-btn {
+.save-btn,
+.reset-btn {
   padding: 0.8rem 1.5rem;
-  border-radius: 6px; 
+  border-radius: 6px;
   cursor: pointer;
   display: flex;
-  align-items: center;  
+  align-items: center;
   gap: 0.5rem;
   transition: background-color 0.3s;
 }
