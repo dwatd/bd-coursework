@@ -30,7 +30,11 @@ app.use("/api/accommodation", accommodationRouter);
 app.use("/api/storage", storageRouter);
 app.use("/api/income", incomeRouter);
 
-app.get("", (req, res) => {
+app.get('', (req, res) => {
+  res.sendFile('cw-page.html', {root: frontPath + '/pages' })
+})
+
+app.get("/main", (req, res) => {
   res.sendFile("main.html", { root: frontPath + "/pages" });
 });
 
